@@ -104,6 +104,16 @@ const Index = () => {
             </Card>
           </Grid>
 
+          <Grid item xs={12} sm={6} md={4}>
+            <Card className={classes.card}>
+              <CardContent className={classes.cardContent}>
+                <Typography gutterBottom variant="h5" component="h2">
+                  <a href="https://gist.github.com/nazo/a6042a1ce09ed470a63c9f37132fef7b" target="_blank">About</a>
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+
         </Grid>
       </Container>
     </main>
