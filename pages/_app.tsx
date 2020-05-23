@@ -1,9 +1,10 @@
-import React from 'react'
-import App from 'next/app'
-import '../css/tailwind.css'
+import React from "react"
+import App from "next/app"
+import "../css/tailwind.css"
+import "../css/markdown.css"
 
 class MyApp extends App {
-  render() {
+  render(): JSX.Element {
     const { Component, pageProps } = this.props
     return <Component {...pageProps} />
   }

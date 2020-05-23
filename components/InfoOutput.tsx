@@ -1,4 +1,6 @@
-export default () => (
+import React from "react"
+
+export const InfoOutput: React.FC = () => (
   <div className="mb-2">
     <div className="font-medium rounded-sm text-lg px-2 py-3 flex text-gray-800 flex-row-reverse mt-2 text-black bg-white hover:bg-white">
       <div className="flex-auto">もう少ししっかりしたアウトプットある？</div>
