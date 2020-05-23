@@ -9,7 +9,7 @@ const PagesContact: React.FC = () => {
           <div className="p-2 bg-gray-100 rounded">
             <form className="form bg-white p-6 my-10 relative" name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
               <p className="hidden">
-                <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+                <label>Dont fill this out if youre human: <input name="bot-field" /></label>
               </p>
               <input type="hidden" name="form-name" value="contact" />
               <h3 className="text-2xl text-gray-900 font-semibold">お問い合わせ</h3>
