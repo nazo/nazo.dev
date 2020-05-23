@@ -23,7 +23,7 @@ const PagesProfile: React.FC<Props> = ({ markdown }: Props) => {
       <div className="bg-gray-100 pt-10 w-full">
         <div className="mx-auto max-w-6xl">
           <div className="p-2 bg-gray-100 rounded">
-            <div className="markdown" dangerouslySetInnerHTML={{__html: markdown}} />
+            <div className="markdown-body" dangerouslySetInnerHTML={{__html: markdown}} />
           </div>
         </div>
       </div>

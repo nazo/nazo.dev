@@ -6,4 +6,4 @@ module.exports = {
       "/contact": { page: "/contact" }
     };
   }
-};
+}

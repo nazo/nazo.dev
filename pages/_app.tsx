@@ -1,7 +1,7 @@
 import React from "react"
 import App from "next/app"
 import "../css/tailwind.css"
-import "../css/markdown.css"
+import "github-markdown-css/github-markdown.css"
 
 class MyApp extends App {
   render(): JSX.Element {
