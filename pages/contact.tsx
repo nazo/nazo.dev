@@ -8,6 +8,9 @@ const PagesContact: React.FC = () => {
         <div className="mx-auto max-w-6xl">
           <div className="p-2 bg-gray-100 rounded">
             <form className="form bg-white p-6 my-10 relative" name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+              <p className="hidden">
+                <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+              </p>
               <input type="hidden" name="form-name" value="contact" />
               <h3 className="text-2xl text-gray-900 font-semibold">お問い合わせ</h3>
               <div className="flex space-x-5 mt-3">
