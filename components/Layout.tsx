@@ -17,7 +17,6 @@ export const Layout: React.FC<Props> = ({ children }: Props) => {
     <div>
       <Head>
         <title>nazo</title>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167539311-1"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
