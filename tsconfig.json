@@ -8,6 +8,9 @@
       "dom.iterable",
       "esnext"
     ],
+    "types": [
+      "gtag.js"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,

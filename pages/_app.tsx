@@ -1,13 +1,22 @@
 import React from "react"
-import App from "next/app"
 import "../css/tailwind.css"
 import "github-markdown-css/github-markdown.css"
+import * as gtag from "../lib/gtag"
+import Router from "next/router"
+import { AppProps } from "next/app"
 
-class MyApp extends App {
-  render(): JSX.Element {
-    const { Component, pageProps } = this.props
-    return <Component {...pageProps} />
-  }
+const App = ({ Component, pageProps }: AppProps): JSX.Element => {
+  React.useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      gtag.pageview(url)
+    }
+    Router.events.on("routeChangeComplete", handleRouteChange)
+    return () => {
+      Router.events.off("routeChangeComplete", handleRouteChange)
+    }
+  }, [])
+
+  return <Component {...pageProps} />
 }
 
-export default MyApp
+export default App

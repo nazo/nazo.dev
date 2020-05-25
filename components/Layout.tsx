@@ -1,5 +1,4 @@
 import React from "react";
-import Head from "next/head"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
@@ -15,17 +14,6 @@ export const Layout: React.FC<Props> = ({ children }: Props) => {
 
   return (
     <div>
-      <Head>
-        <title>nazo</title>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167539311-1"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'UA-167539311-1');
-        </script>
-      </Head>
       <nav className="bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
