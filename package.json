@@ -31,7 +31,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "rss-parser": "^3.8.0",
-    "tailwindcss": "^1.4.6"
+    "tailwindcss": "^1.4.6",
+    "three": "^0.116.1"
   },
   "devDependencies": {
     "@types/gtag.js": "0.0.3",

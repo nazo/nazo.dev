@@ -8,8 +8,6 @@ export default class MyDocument extends Document {
     return (
       <html lang="ja">
         <Head>
-          <title>nazo</title>
-
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async
