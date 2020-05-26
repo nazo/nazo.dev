@@ -1,6 +1,7 @@
 import React from "react"
 import Head from "next/head"
 import "../css/tailwind.css"
+import "../css/marquee.css"
 import "github-markdown-css/github-markdown.css"
 import * as gtag from "../lib/gtag"
 import Router from "next/router"

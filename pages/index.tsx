@@ -99,6 +99,7 @@ const PagesIndex: React.FC = () => {
       <div className="bg-gray-100 pt-10">
         <div className="mx-auto max-w-6xl">
           <div ref={screen}></div>
+          <div className="marquee"><span>nazoのホームページへようこそ！楽しんでいってください！</span></div>
           <div className="p-2 bg-gray-100 rounded">
             <div className="flex flex-col md:flex-row">
               <Profile></Profile>
