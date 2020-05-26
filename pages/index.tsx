@@ -13,7 +13,7 @@ const PagesIndex: React.FC = () => {
 
   const initWebGL = async (renderer: THREE.WebGLRenderer, camera: THREE.PerspectiveCamera): Promise<() => void> => {
     const clock = new THREE.Clock();
-    if (screen.current === null) return () => {}
+    if (screen.current === null) return () => ({})
     const width = screen.current.clientWidth;
     camera.aspect = width / 100
     renderer.setPixelRatio(window.devicePixelRatio);
