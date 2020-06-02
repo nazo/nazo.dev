@@ -1,105 +1,54 @@
-import React from "react"
-import { Layout } from "../components/Layout"
-import { Profile } from "../components/Profile"
-import { InfoVoice } from "../components/InfoVoice"
-import { InfoOutput } from "../components/InfoOutput"
-import { InfoContact } from "../components/InfoContact"
-import * as THREE from "three"
-import { OBJLoader } from "../node_modules/three/examples/jsm/loaders/OBJLoader.js"
+import React from "react";
+import { Layout } from "../components/Layout";
+import { Profile } from "../components/Profile";
+import { InfoVoice } from "../components/InfoVoice";
+import { InfoOutput } from "../components/InfoOutput";
+import { InfoContact } from "../components/InfoContact";
+import { Logo } from "../components/Logo";
+import { GetStaticProps } from "next";
+import RssParser from "rss-parser";
 
-const PagesIndex: React.FC = () => {
-  const screen = React.useRef<HTMLDivElement>(null);
-  const requestRef = React.useRef<number>();
+type Props = {
+  items: Array<RssParser.Item>
+};
 
-  const initWebGL = async (renderer: THREE.WebGLRenderer, camera: THREE.PerspectiveCamera): Promise<() => void> => {
-    const clock = new THREE.Clock();
-    if (screen.current === null) return () => ({})
-    const width = screen.current.clientWidth;
-    camera.aspect = width / 100
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(width, 100);
-    screen.current.appendChild(renderer.domElement);
-
-    const scene = new THREE.Scene();
-
-    camera.position.set(0, 0, 4);
-
-    const ambient = new THREE.AmbientLight(0x444444);
-    scene.add(ambient);
-
-    const directionalLight = new THREE.DirectionalLight(0xffeedd);
-    directionalLight.position.set(0, 0, 1).normalize();
-    scene.add(directionalLight);
-
-    const loadModel = (path: string): Promise<THREE.Group> => {
-      return new Promise<THREE.Group>((resolve: (group: THREE.Group) => void, reject: (event: ErrorEvent) => void): void => {
-        const loader = new OBJLoader();
-        loader.load(path, (model: THREE.Group): void => {
-          resolve(model);
-        }, undefined, (event: ErrorEvent) => { reject(event) });
-      })
-    }
-
-    const model = await loadModel("/welcome.obj")
-    model.rotation.set(Math.PI / 2, 0, 0);
-    scene.add(model);
-
-    let time = 0
-    let colorTime = 0
-
-    const render = (): void => {
-      const delta = clock.getDelta()
-      model.rotation.set(Math.PI / 2, 0, time);
-      time += (Math.PI / 100) * delta
-      colorTime -= delta
-      if (colorTime <= 0) {
-        directionalLight.color = new THREE.Color(Math.floor(Math.random() * 0xFFFFFF))
-        colorTime = 1
-      }
-      renderer.render(scene, camera);
-    }
-
-    const animate = (): void => {
-      requestRef.current = requestAnimationFrame(animate);
-      render();
-    }
-
-    return animate
+export const getStaticProps: GetStaticProps = async () => {
+  const parser = new RssParser();
+  const gistFeed = await parser.parseURL("https://gist.github.com/nazo.atom");
+  const blogFeed = await parser.parseURL("https://nazo.hatenablog.com/feed");
+  let items: Array<RssParser.Item> = [];
+  if (gistFeed.items !== undefined) {
+    items = items.concat(gistFeed.items);
   }
-
-  React.useEffect(() => {
-    const renderer = new THREE.WebGLRenderer();
-    const camera = new THREE.PerspectiveCamera(45, 800 / 100, 1, 2000);
-    const onResize = () => {
-      if (screen.current === null) return;
-      const width = screen.current.clientWidth
-      renderer.setSize(width, 100);
-      camera.aspect = width / 100
+  if (blogFeed.items !== undefined) {
+    items = items.concat(blogFeed.items);
+  }
+  return {
+    props: {
+      items: items.sort((a, b) => {
+        if (a.pubDate === undefined || b.pubDate === undefined) { return 0; }
+        const dateA = new Date(a.pubDate);
+        const dateB = new Date(b.pubDate);
+        if (dateA > dateB) { return -1; }
+        if (dateA < dateB) { return 1; }
+        return 0;
+      }).slice(0, 10)
     }
+  };
+};
 
-    (async () => {
-      const animate = await initWebGL(renderer, camera)
-      requestRef.current = requestAnimationFrame(animate);
-      window.addEventListener("resize", onResize);
-    })();
-
-    return () => {
-      if (requestRef.current !== undefined) {
-        cancelAnimationFrame(requestRef.current);
-      }
-      window.addEventListener("resize", onResize);
-      if (screen.current !== null) {
-        screen.current.removeChild(renderer.domElement);
-      }
-    }
-  }, [])
+const PagesIndex: React.FC<Props> = ({ items }: Props) => {
+  const externalPageName = (link: string | undefined) => {
+    if (link === undefined) { return ""; }
+    if (link.startsWith("https://gist.github.com/")) { return "Gist"; }
+    else { return "Blog"; }
+  };
 
   return (
     <Layout>
       <div className="bg-gray-100 pt-10">
         <div className="mx-auto max-w-6xl">
-          <div ref={screen}></div>
-          <div className="marquee"><span>nazoのホームページへようこそ！楽しんでいってください！</span></div>
+          <Logo></Logo>
           <div className="p-2 bg-gray-100 rounded">
             <div className="flex flex-col md:flex-row">
               <Profile></Profile>
@@ -114,8 +63,21 @@ const PagesIndex: React.FC = () => {
           </div>
         </div>
       </div>
+      <div className="bg-gray-100 pt-10">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="pb-5 text-xl font-bold">最近のアップデート</h2>
+          <div className="flex flex-col">
+            {items.map((item) => (
+              <div className="text-black text-left bg-gray-400 px-4 py-2 m-2" key={item.guid}>
+                <span className="mx-5">{externalPageName(item.link)}</span>
+                <a href={item.link} className="underline">{item.title}</a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default PagesIndex
+export default PagesIndex;

@@ -1,5 +1,5 @@
-import React from "react"
-import { Layout } from "../components/Layout"
+import React from "react";
+import { Layout } from "../components/Layout";
 
 const PagesContact: React.FC = () => {
   return (
@@ -24,7 +24,7 @@ const PagesContact: React.FC = () => {
         </div>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default PagesContact
+export default PagesContact;

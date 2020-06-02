@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 export const InfoOutput: React.FC = () => (
   <div className="mb-2">
@@ -9,4 +9,4 @@ export const InfoOutput: React.FC = () => (
       <a href="https://github.com/nazo/" className="underline font-medium text-lg">GitHub</a>にていくつかソースコードを公開しております。まとまった内容は<a href="https://nazo.hatenablog.com/" className="underline font-medium text-lg">ブログ</a>にて発信しております。あまりまとまっていない内容は<a href="https://gist.github.com/nazo/" className="underline font-medium text-lg">Gist</a>にもあります。
     </div>
   </div>
-)
+);

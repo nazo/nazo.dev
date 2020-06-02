@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 export const InfoVoice: React.FC = () => (
   <div className="mb-2">
@@ -9,4 +9,4 @@ export const InfoVoice: React.FC = () => (
       <a href="https://twitter.com/nazo" className="underline font-medium text-lg">Twitter</a>での発言が一番多いです。技術ネタからプライベートな話まで雑多にツイートしておりますので、人物像が一番よくわかるかと思います。<a href="https://www.facebook.com/nazone" className="underline font-medium text-lg">Facebook</a>も利用しております。
     </div>
   </div>
-)
+);

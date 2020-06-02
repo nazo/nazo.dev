@@ -15,6 +15,8 @@ module.exports = {
     "plugin:react/recommended"
   ],
   "rules": {
-    quotes: ["error", "double"]
+    quotes: ["error", "double"],
+    "semi": "off",
+    "@typescript-eslint/semi": ["error"]
   }
 };

@@ -1,7 +1,7 @@
-import React from "react"
-import Document, { Head, Main, NextScript } from "next/document"
+import React from "react";
+import Document, { Head, Main, NextScript } from "next/document";
 
-import { GA_TRACKING_ID } from "../lib/gtag"
+import { GA_TRACKING_ID } from "../lib/gtag";
 
 export default class MyDocument extends Document {
   render(): JSX.Element {
@@ -31,6 +31,6 @@ export default class MyDocument extends Document {
           <NextScript />
         </body>
       </html>
-    )
+    );
   }
 }

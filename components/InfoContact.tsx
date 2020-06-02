@@ -10,4 +10,4 @@ export const InfoContact: React.FC = () => (
       <Link href="/profile"><a className="underline font-medium text-lg">Webエンジニアとしてのプロフィール</a></Link>をまとめてありますので、こちらを一読の上ご連絡をお待ちしております。連絡をしたい場合は<Link href="/contact"><a className="underline font-medium text-lg">お問い合わせ</a></Link>からご連絡下さい。
     </div>
   </div>
-)
+);

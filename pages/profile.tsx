@@ -1,21 +1,21 @@
-import React from "react"
-import { Layout } from "../components/Layout"
+import React from "react";
+import { Layout } from "../components/Layout";
 import marked from "marked";
-import { GetStaticProps } from "next"
+import { GetStaticProps } from "next";
 
 type Props = {
   markdown: string
-}
+};
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await fetch("https://gist.githubusercontent.com/nazo/a6042a1ce09ed470a63c9f37132fef7b/raw/portfolio.md")
-  const markdown = await response.text()
+  const response = await fetch("https://gist.githubusercontent.com/nazo/a6042a1ce09ed470a63c9f37132fef7b/raw/portfolio.md");
+  const markdown = await response.text();
   return {
     props: {
       markdown: marked(markdown)
     }
-  }
-}
+  };
+};
 
 const PagesProfile: React.FC<Props> = ({ markdown }: Props) => {
   return (
@@ -28,7 +28,7 @@ const PagesProfile: React.FC<Props> = ({ markdown }: Props) => {
         </div>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default PagesProfile
+export default PagesProfile;

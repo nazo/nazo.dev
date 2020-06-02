@@ -1,10 +1,10 @@
 import React from "react";
-import Link from "next/link"
-import { useRouter } from "next/router"
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 type Props = {
   children: React.ReactNode
-}
+};
 
 export const Layout: React.FC<Props> = ({ children }: Props) => {
   const router = useRouter();
@@ -33,11 +33,9 @@ export const Layout: React.FC<Props> = ({ children }: Props) => {
         </div>
       </nav>
       <main>
-        <div className="antialiased text-gray-900 flex items-center justify-center min-h-screen">
-          { children }
-        </div>
+        { children }
       </main>
-      <div>このページのソースコードは <a href="https://github.com/nazo/nazo.dev" className="underline font-medium text-lg">https://github.com/nazo/nazo.dev</a> で公開されています。</div>
+      <div className="mt-20">このページのソースコードは <a href="https://github.com/nazo/nazo.dev" className="underline font-medium text-lg">https://github.com/nazo/nazo.dev</a> で公開されています。</div>
     </div>
   );
-}
+};
