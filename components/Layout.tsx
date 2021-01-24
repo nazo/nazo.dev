@@ -25,7 +25,6 @@ export const Layout: React.FC<Props> = ({ children }: Props) => {
                 <div className="ml-10 flex items-baseline">
                   <Link href="/"><a className={linkClass("/")}>概要</a></Link>
                   <Link href="/profile"><a className={linkClass("/profile")}>プロフィール</a></Link>
-                  <Link href="/contact"><a className={linkClass("/contact")}>お問い合わせ</a></Link>
                 </div>
               </div>
             </div>
