@@ -1,7 +1,6 @@
 import React from "react";
 import { Layout } from "../components/Layout";
 import { Profile } from "../components/Profile";
-import { InfoVoice } from "../components/InfoVoice";
 import { InfoOutput } from "../components/InfoOutput";
 import { InfoContact } from "../components/InfoContact";
 import { GetStaticProps } from "next";
@@ -52,7 +51,6 @@ const PagesIndex: React.FC<Props> = ({ items }: Props) => {
               <Profile></Profile>
               <div className="md:w-2/3">
                 <div className="p-4">
-                  <InfoVoice></InfoVoice>
                   <InfoOutput></InfoOutput>
                   <InfoContact></InfoContact>
                 </div>
