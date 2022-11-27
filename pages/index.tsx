@@ -1,14 +1,44 @@
 import React from "react";
 import { Layout } from "../components/Layout";
-import { Profile } from "../components/Profile";
-import { InfoOutput } from "../components/InfoOutput";
-import { InfoContact } from "../components/InfoContact";
 import { GetStaticProps } from "next";
 import RssParser from "rss-parser";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import Link from "@mui/material/Link";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+
+const cards = [
+  {
+    head: "Webシステム開発",
+    body: "月10日以内での継続した稼働を提供します。サーバーサイドを中心に多数のプログラミング言語での開発実績があり、最新の環境での開発からレガシーな環境の改善まで幅広く行います。"
+  },
+  {
+    head: "Webインフラ構築（AWS, GCP）",
+    body: "単発または月10日以内での継続プランでインフラの構築を請け負います。クラウドネイティブかつ保守を行いやすい環境を提供します。"
+  },
+  {
+    head: "Webインフラ保守",
+    body: "定額でインフラなどの保守とチャットサポートを請け負います。"
+  },
+  {
+    head: "技術顧問",
+    body: "定額でチャットでの相談及び月１でのオンライン面談を請け負います。"
+  }
+];
 
 type Props = {
   items: Array<RssParser.Item>
 };
+
 
 export const getStaticProps: GetStaticProps = async () => {
   const parser = new RssParser();
@@ -44,34 +74,86 @@ const PagesIndex: React.FC<Props> = ({ items }: Props) => {
 
   return (
     <Layout>
-      <div className="bg-gray-100 pt-10">
-        <div className="mx-auto max-w-6xl">
-          <div className="p-2 bg-gray-100 rounded">
-            <div className="flex flex-col md:flex-row">
-              <Profile></Profile>
-              <div className="md:w-2/3">
-                <div className="p-4">
-                  <InfoOutput></InfoOutput>
-                  <InfoContact></InfoContact>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="bg-gray-100 pt-10">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="pb-5 text-xl font-bold">最近のアップデート</h2>
-          <div className="flex flex-col">
-            {items.map((item) => (
-              <div className="text-black text-left bg-gray-400 px-4 py-2 m-2" key={item.guid}>
-                <span className="mx-5">{externalPageName(item.link)}</span>
-                <a href={item.link} className="underline">{item.title}</a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      {/* Hero unit */}
+      <Box
+        sx={{
+          bgcolor: "background.paper",
+          pt: 8,
+          pb: 6,
+        }}
+      >
+        <Container maxWidth="sm">
+          <Typography
+            component="h1"
+            variant="h2"
+            align="center"
+            color="text.primary"
+            gutterBottom
+          >
+            なぞらぼ by nazo
+          </Typography>
+          <Typography variant="h5" align="center" color="text.secondary" paragraph>
+            Webシステム開発の助け舟！開発はもちろん、インフラ構築や技術選定、チームメンバー育成から経営方針の相談まで幅広く御社の業務をサポート致します。まずはご相談下さい！
+          </Typography>
+          <Stack
+            sx={{ pt: 4 }}
+            direction="row"
+            spacing={2}
+            justifyContent="center"
+          >
+            <Button LinkComponent={Link} href="mailto:nazo@nazo.dev" variant="contained">今すぐ相談する</Button>
+            <Button LinkComponent={Link} href="/profile" variant="outlined">プロフィールを見る</Button>
+          </Stack>
+        </Container>
+      </Box>
+      <Container sx={{ py: 8 }} maxWidth="md">
+        {/* End hero unit */}
+        <Grid container spacing={4}>
+          {cards.map((card, index) => (
+            <Grid item key={index} xs={12} sm={6} md={4}>
+              <Card
+                sx={{ height: "100%", display: "flex", flexDirection: "column" }}
+              >
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    { card.head }
+                  </Typography>
+                  <Typography>
+                    { card.body }
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+      <Container maxWidth="md">
+        <Grid container>
+          <Grid item xs={12} sm={12} md={12}>
+            <Card
+              sx={{ height: "100%", display: "flex", flexDirection: "column" }}
+            >
+              <CardContent sx={{ flexGrow: 1 }}>
+                <Typography gutterBottom variant="h5" component="h2">
+                  最近のアップデート
+                </Typography>
+                <Typography>
+                  {items.map((item) => (
+                    <List key={item.guid}>
+                      <ListItem>
+                          <ListItemIcon>{externalPageName(item.link)}</ListItemIcon>
+                        <ListItemText>
+                          <a href={item.link} rel="noreferrer" target="_blank">{item.title}</a>
+                        </ListItemText>
+                      </ListItem>
+                    </List>
+                  ))}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+      </Container>
     </Layout>
   );
 };

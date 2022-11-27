@@ -1,40 +1,57 @@
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import { Link as MUILink } from "@mui/material";
 
 type Props = {
   children: React.ReactNode
 };
 
-export const Layout: React.FC<Props> = ({ children }: Props) => {
-  const router = useRouter();
-  const linkClass = (path: string) => {
-    return router.pathname === path ? "px-3 py-2 rounded-md text-sm font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700" : "ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700";
-  };
-
+function Copyright() {
   return (
-    <div>
-      <nav className="bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <img className="h-8 w-8" src="/images/nazo.png" alt="nazo" />
-              </div>
-              <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline">
-                  <Link href="/"><a className={linkClass("/")}>概要</a></Link>
-                  <Link href="/profile"><a className={linkClass("/profile")}>プロフィール</a></Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+    <Typography variant="body2" color="text.secondary" align="center">
+      {"Copyright © "}
+      <Link color="inherit" href="https://nazo.dev/">
+        なぞらぼ
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
+
+
+export const Layout: React.FC<Props> = ({ children }: Props) => {
+  return (
+    <>
+      <AppBar position="relative">
+        <Toolbar>
+          <Link href="/" passHref legacyBehavior>
+            <MUILink color="inherit" underline="none">
+              <Typography variant="h6" color="inherit" noWrap>
+                なぞらぼ
+              </Typography>
+            </MUILink>
+          </Link>
+        </Toolbar>
+      </AppBar>
       <main>
         { children }
       </main>
-      <div className="mt-20">このページのソースコードは <a href="https://github.com/nazo/nazo.dev" className="underline font-medium text-lg">https://github.com/nazo/nazo.dev</a> で公開されています。</div>
-    </div>
+      <Box sx={{ bgcolor: "background.paper", p: 6 }} component="footer">
+        <Typography
+          variant="subtitle1"
+          align="center"
+          color="text.secondary"
+          component="p"
+        >
+          このページのソースコードは <a href="https://github.com/nazo/nazo.dev" rel="noreferrer" target="_blank">https://github.com/nazo/nazo.dev</a> で公開しています。
+        </Typography>
+        <Copyright />
+      </Box>
+    </>
   );
 };

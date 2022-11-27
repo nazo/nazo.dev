@@ -1,29 +1,23 @@
 import React from "react";
 import Head from "next/head";
-import "../css/tailwind.css";
 import "../css/marquee.css";
 import "github-markdown-css/github-markdown.css";
-import * as gtag from "../lib/gtag";
-import Router from "next/router";
 import { AppProps } from "next/app";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import theme from "../src/theme";
+
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
-  React.useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      gtag.pageview(url);
-    };
-    Router.events.on("routeChangeComplete", handleRouteChange);
-    return () => {
-      Router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, []);
-
   return (
     <>
       <Head>
-        <title>nazo</title>
+        <title>なぞらぼ by nazo</title>
       </Head>
-      <Component {...pageProps} />
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   );
 };

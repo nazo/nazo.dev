@@ -1,7 +1,8 @@
 import React from "react";
 import { Layout } from "../components/Layout";
-import marked from "marked";
+import { marked } from "marked";
 import { GetStaticProps } from "next";
+import Container from "@mui/material/Container";
 
 type Props = {
   markdown: string
@@ -12,7 +13,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const markdown = await response.text();
   return {
     props: {
-      markdown: marked(markdown)
+      markdown: marked.parse(markdown)
     }
   };
 };
@@ -20,13 +21,9 @@ export const getStaticProps: GetStaticProps = async () => {
 const PagesProfile: React.FC<Props> = ({ markdown }: Props) => {
   return (
     <Layout>
-      <div className="bg-gray-100 pt-10 w-full">
-        <div className="mx-auto max-w-6xl">
-          <div className="p-2 bg-gray-100 rounded">
-            <div className="markdown-body" dangerouslySetInnerHTML={{__html: markdown}} />
-          </div>
-        </div>
-      </div>
+      <Container maxWidth="md">
+        <div className="markdown-body" dangerouslySetInnerHTML={{__html: markdown}} />
+      </Container>
     </Layout>
   );
 };
