@@ -93,7 +93,7 @@ const PagesIndex: React.FC<Props> = ({ items }: Props) => {
             なぞらぼ by nazo
           </Typography>
           <Typography variant="h5" align="center" color="text.secondary" paragraph>
-            Webシステム開発の助け舟！開発はもちろん、インフラ構築や技術選定、チームメンバー育成から経営方針の相談まで幅広く御社の業務をサポート致します。まずはご相談下さい！
+            Webシステム開発ならnazoにお任せ！開発はもちろん、インフラ構築や技術選定、チームメンバー育成から経営方針の相談まで幅広く御社の業務をサポート致します。まずはご相談下さい！
           </Typography>
           <Stack
             sx={{ pt: 4 }}
