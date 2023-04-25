@@ -9,16 +9,15 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     timeout-minutes: 30
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 17.6.0
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
       with:
-        node-version: 17.6.0
+        node-version-file: '.tool-versions'
     - name: Cache node modules
-      uses: actions/cache@v1
+      uses: actions/cache@v3
       env:
         cache-name: cache-node-modules
       with:
