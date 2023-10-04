@@ -101,7 +101,7 @@ const PagesIndex: React.FC<Props> = ({ items }: Props) => {
             spacing={2}
             justifyContent="center"
           >
-            <Button LinkComponent={Link} href="mailto:nazo@nazo.dev" variant="contained">今すぐ相談する</Button>
+            <Button LinkComponent={Link} href="https://www.linkedin.com/in/nazolabo/" variant="contained">今すぐ相談する</Button>
             <Button LinkComponent={Link} href="/profile" variant="outlined">プロフィールを見る</Button>
           </Stack>
         </Container>
