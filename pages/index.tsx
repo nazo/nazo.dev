@@ -44,12 +44,16 @@ export const getStaticProps: GetStaticProps = async () => {
   const parser = new RssParser();
   const gistFeed = await parser.parseURL("https://gist.github.com/nazo.atom");
   const blogFeed = await parser.parseURL("https://nazo.hatenablog.com/feed");
+  const zennFeed = await parser.parseURL("https://zenn.dev/nazo/feed?include_scraps=1");
   let items: Array<RssParser.Item> = [];
   if (gistFeed.items !== undefined) {
     items = items.concat(gistFeed.items);
   }
   if (blogFeed.items !== undefined) {
     items = items.concat(blogFeed.items);
+  }
+  if (zennFeed.items !== undefined) {
+    items = items.concat(zennFeed.items);
   }
   return {
     props: {
@@ -68,7 +72,8 @@ export const getStaticProps: GetStaticProps = async () => {
 const PagesIndex: React.FC<Props> = ({ items }: Props) => {
   const externalPageName = (link: string | undefined) => {
     if (link === undefined) { return ""; }
-    if (link.startsWith("https://gist.github.com/")) { return "Gist"; }
+    if (link.startsWith("https://zenn.dev/")) { return "Zenn"; }
+    else if (link.startsWith("https://gist.github.com/")) { return "Gist"; }
     else { return "Blog"; }
   };
 
