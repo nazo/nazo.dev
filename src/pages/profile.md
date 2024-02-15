@@ -5,7 +5,7 @@ title: 'なぞらぼ by nazo'
 
 - [Home](/)
 
-# 日本語を含む各種SNS
+# 日本語を含む各種外部サイト
 
 - [GitHub](https://github.com/nazo)
 - [Gist](https://gist.github.com/nazo)
@@ -21,7 +21,7 @@ title: 'なぞらぼ by nazo'
 
 - **nazo** はフリーランスのWebエンジニアです。主に開発しやすい環境作りやインフラ整備などを得意としています。 上場企業でリードエンジニアとして貢献してきた実績があります。
 - PHP / Ruby / Python / Node.js / Elixir / Go / React.js / Next.js / Vue.js / Nuxt.js / Unity / AWS / GCP などの実務実績があります。
-- フルリモートでお仕事をしております。週1〜4で稼働しております。
+- フルリモートでお仕事をしております。週1〜4で稼働しております。各種外部サイトの連絡手段をご利用下さい。
 
 # 経歴
 
