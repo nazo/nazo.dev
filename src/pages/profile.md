@@ -8,6 +8,7 @@ title: 'なぞらぼ by nazo'
 # 日本語を含む各種外部サイト
 
 - [GitHub](https://github.com/nazo)
+    - [OSSへのPull Requests](https://github.com/pulls?q=is%3Apr+author%3Anazo+archived%3Afalse+is%3Apublic+-owner%3Anazo)
 - [Gist](https://gist.github.com/nazo)
 - [Linkedin](https://www.linkedin.com/in/nazolabo/)
 - [Bluesky](https://bsky.app/profile/nazo.dev)
