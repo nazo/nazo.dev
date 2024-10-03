@@ -16,7 +16,7 @@ title: 'なぞらぼ by nazo'
 - [Zenn](https://zenn.dev/nazo/)
 - [Wantedly](https://www.wantedly.com/id/nazone)
 - [YOUTRUST](https://youtrust.jp/users/2a1b82d8abe061e9f9690ef943a19c15)
-- [UUUM時代に書いた記事](https://system.blog.uuum.jp/archive/author/nazone)
+- [UUUM時代に書いた記事](https://web.archive.org/web/20200927110431/https://system.blog.uuum.jp/archive/author/nazone)
 
 # 誰？
 
