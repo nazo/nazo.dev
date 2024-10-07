@@ -8,29 +8,27 @@ title: 'なぞらぼ by nazo'
 # 日本語を含む各種外部サイト
 
 - [GitHub](https://github.com/nazo)
-    - [OSSへのPull Requests](https://github.com/pulls?q=is%3Apr+author%3Anazo+archived%3Afalse+is%3Apublic+-owner%3Anazo)
+  - [過去に作成したPull Request](https://github.com/pulls?q=is%3Apr+author%3Anazo+archived%3Afalse+is%3Apublic+-owner%3Anazo)
 - [Gist](https://gist.github.com/nazo)
 - [Linkedin](https://www.linkedin.com/in/nazolabo/)
-- [Bluesky](https://bsky.app/profile/nazo.dev)
 - [ブログ](https://nazo.hatenablog.com/)
 - [Zenn](https://zenn.dev/nazo/)
 - [Wantedly](https://www.wantedly.com/id/nazone)
-- [YOUTRUST](https://youtrust.jp/users/2a1b82d8abe061e9f9690ef943a19c15)
 - [UUUM時代に書いた記事](https://web.archive.org/web/20200927110431/https://system.blog.uuum.jp/archive/author/nazone)
 
 # 誰？
 
-- **nazo** はフリーランスのWebエンジニアです。主に開発しやすい環境作りやインフラ整備などを得意としています。 上場企業でリードエンジニアとして貢献してきた実績があります。
-- PHP / Ruby / Python / Node.js / Elixir / Go / React.js / Next.js / Vue.js / Nuxt.js / Unity / AWS / GCP などの実務実績があります。
-- フルリモートでお仕事をしております。週1〜4で稼働しております。各種外部サイトの連絡手段をご利用下さい。
+- **nazo** はフリーランスの Web エンジニアです。主に開発しやすい環境作りやインフラ整備などを得意としています。 上場企業でリードエンジニアとして貢献してきた実績があります。
+- Go / Python / Ruby あたりのサーバーサイドと AWS / GCP インフラを中心に担当しています。
+  - 実績としては PHP / Ruby / Python / Node.js (TypeScript) / Elixir / Go / React.js / Next.js / Vue.js / Nuxt.js / Unity / AWS / GCP などがあります。
+- フルリモートでお仕事をしております。最大週4で稼働しております。各種外部サイトの連絡手段をご利用下さい。
 
 # 経歴
 
 - [Wantedly](https://www.wantedly.com/id/nazone) または [YOUTRUST](https://youtrust.jp/users/2a1b82d8abe061e9f9690ef943a19c15) でご確認下さい。
 - 直近の業務内容に関しては [ブログ](https://nazo.hatenablog.com/archive/category/works) でご確認下さい。
 
-# やること
-
+# こんなことができます
 
 - AWS (特に ECS + Fargate ), GCP ( 特に Cloud Run ) によるインフラ構築
   - 10サービスくらい立ち上げの経験があります。
@@ -56,11 +54,11 @@ title: 'なぞらぼ by nazo'
 
 # やらないこと
 
-- 時間拘束が厳しい業務
-  - スクラム開発やスケジューリングを伴うマネジメント等、時間拘束が厳しい業務は都合上お断りさせて頂いております。
 - デザイン・HTML/CSSコーディング
-  - デザインセンスが皆無なので原則お断りさせて頂いております。
+  - （ビジュアル）デザインセンスが皆無なので原則お断りさせて頂いております。
   - 別の方が作ったHTML/CSSを組み込むようなことは可能です。
-  - Chakra UI等のありものを組み合わせて作るようなことも対応可能です。
+  - デザインにオリジナリティが必要ないのであれば、既存のUIフレームワークを利用して組み上げることは可能です。
 - 出社などの物理的な移動
   - 原則お断りしております。
+- 日本語以外の言語対応
+  - テキストチャットやGitHub上で多少であれば可能ですが、対面は難しいです。
